@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Franchise Funding — Find Money for Your Franchise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #fffbf5;
+      --green: #1a6b3c;
+      --green-light: #e8f4ed;
+      --green-mid: #2d8a52;
+      --orange: #e85d26;
+      --orange-light: #fdf0eb;
+      --text: #1c1c1c;
+      --muted: #6b6b6b;
+      --border: #e8e0d5;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      font-size: 18px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      background: var(--white);
+      border-bottom: 2px solid var(--text);
+    }
+    .logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem; font-weight: 900;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+    .logo span { color: var(--green); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      font-size: 0.9rem; font-weight: 500;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--orange) !important;
+      color: var(--white) !important;
+      padding: 11px 22px;
+      border-radius: 8px;
+      font-size: 0.9rem !important;
+      font-weight: 600 !important;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.88; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 48px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 0.85rem; font-weight: 600;
+      padding: 6px 14px; border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow::before { content: '🇬🇧'; font-size: 0.9rem; }
+
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(3rem, 5.5vw, 5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    h1 .highlight {
+      color: var(--green);
+      font-style: italic;
+    }
+    h1 .underline-word {
+      position: relative; display: inline-block;
+      white-space: nowrap;
+    }
+    h1 .underline-word::after {
+      content: '';
+      position: absolute; left: 0; bottom: 4px; right: 0;
+      height: 6px;
+      background: var(--orange);
+      border-radius: 3px;
+      z-index: -1;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .btn-big {
+      background: var(--green);
+      color: var(--white);
+      border: none; border-radius: 10px;
+      padding: 16px 28px;
+      font-size: 1rem; font-weight: 600;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      text-decoration: none; display: inline-block;
+    }
+    .btn-big:hover { opacity: 0.88; transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 24px;
+      font-size: 1rem; font-weight: 500;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      text-decoration: none; display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--text); }
+
+    .hero-note {
+      margin-top: 16px;
+      font-size: 0.82rem; color: var(--muted);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .hero-note::before { content: '✓'; color: var(--green); font-weight: 700; }
+
+    /* ── HERO CARD (right side) ── */
+    .hero-card {
+      background: var(--white);
+      border: 2px solid var(--text);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: 6px 6px 0 var(--text);
+      animation: fadeUp 0.5s 0.2s ease both;
+    }
+    .hero-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.4rem; font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .hero-card > p {
+      font-size: 0.9rem; color: var(--muted);
+      margin-bottom: 24px; line-height: 1.6;
+    }
+    .field-label {
+      font-size: 0.8rem; font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px; display: block;
+    }
+    .hero-card input, .hero-card select {
+      width: 100%;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+      padding: 12px 14px;
+      font-size: 0.95rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      outline: none;
+      margin-bottom: 14px;
+      transition: border-color 0.2s;
+    }
+    .hero-card input:focus, .hero-card select:focus { border-color: var(--green); }
+    .hero-card input::placeholder { color: #bbb; }
+    .hero-card select option { background: var(--white); }
+    .btn-submit {
+      width: 100%;
+      background: var(--orange);
+      color: var(--white);
+      border: none; border-radius: 8px;
+      padding: 15px;
+      font-size: 1rem; font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 4px;
+    }
+    .btn-submit:hover { opacity: 0.88; }
+    .card-note {
+      font-size: 0.78rem; color: var(--muted);
+      text-align: center; margin-top: 10px;
+    }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      background: var(--text);
+      color: rgba(255,255,255,0.7);
+      padding: 18px 48px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px; flex-wrap: wrap;
+      font-size: 0.88rem; font-weight: 500;
+    }
+    .trust-strip span { display: flex; align-items: center; gap: 8px; }
+
+    /* ── SECTIONS ── */
+    .section-wrap { max-width: 1100px; margin: 0 auto; padding: 80px 48px; }
+
+    .pill-label {
+      display: inline-block;
+      background: var(--orange-light);
+      color: var(--orange);
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .pill-label.green { background: var(--green-light); color: var(--green); }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 540px;
+      margin-bottom: 52px;
+    }
+
+    /* ── FUNDING CARDS ── */
+    .funding-section { background: var(--white); border-top: 2px solid var(--border); border-bottom: 2px solid var(--border); }
+
+    .funding-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .fcard {
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      cursor: default;
+      background: var(--bg);
+    }
+    .fcard:hover {
+      border-color: var(--green);
+      transform: translateY(-4px);
+      box-shadow: 4px 4px 0 var(--green);
+    }
+    .fcard-emoji { font-size: 2.2rem; margin-bottom: 14px; display: block; }
+    .fcard-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem; font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .fcard-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.7; }
+    .fcard-tag {
+      display: inline-block; margin-top: 14px;
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--green);
+      background: var(--green-light);
+      padding: 4px 12px; border-radius: 20px;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-section { background: var(--bg); }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    }
+    .step-box {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 22px;
+      transition: border-color 0.2s;
+    }
+    .step-box:hover { border-color: var(--green); }
+    .step-num-big {
+      font-family: 'Fraunces', serif;
+      font-size: 3rem; font-weight: 900;
+      color: var(--green-light);
+      line-height: 1;
+      margin-bottom: 12px;
+      -webkit-text-stroke: 2px var(--green);
+    }
+    .step-title {
+      font-size: 1.05rem; font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .step-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── LENDER SECTION ── */
+    .lender-section { background: var(--green); }
+    .lender-section h2 { color: var(--white); }
+    .lender-section .section-sub { color: rgba(255,255,255,0.65); }
+    .lender-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+    }
+    .perk-list { display: flex; flex-direction: column; gap: 22px; margin-top: 8px; }
+    .perk {
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .perk-dot {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: rgba(255,255,255,0.15);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .perk-title { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .perk-desc { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    .lender-form {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 36px;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .lender-form h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem; font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .lender-form > p {
+      font-size: 0.9rem; color: var(--muted);
+      margin-bottom: 22px; line-height: 1.6;
+    }
+    .lender-form input, .lender-form select {
+      width: 100%;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+      padding: 12px 14px;
+      font-size: 0.95rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      outline: none;
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+    .lender-form input:focus, .lender-form select:focus { border-color: var(--green); }
+    .lender-form input::placeholder { color: #bbb; }
+
+    /* ── WAITLIST ── */
+    .waitlist-section {
+      background: var(--orange);
+      text-align: center;
+      padding: 80px 48px;
+    }
+    .waitlist-section h2 { color: var(--white); margin-bottom: 12px; }
+    .waitlist-section p { color: rgba(255,255,255,0.75); font-size: 1.05rem; margin-bottom: 36px; }
+    .waitlist-form {
+      display: flex; gap: 12px; justify-content: center;
+      max-width: 500px; margin: 0 auto; flex-wrap: wrap;
+    }
+    .waitlist-form input {
+      flex: 1; min-width: 220px;
+      background: var(--white);
+      border: 2px solid transparent;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 1rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      outline: none; color: var(--text);
+    }
+    .waitlist-form input:focus { border-color: var(--text); }
+    .btn-white {
+      background: var(--white);
+      color: var(--orange);
+      border: none; border-radius: 8px;
+      padding: 14px 28px;
+      font-size: 1rem; font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-white:hover { opacity: 0.9; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text);
+      padding: 36px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem; font-weight: 900;
+      color: var(--white);
+    }
+    .footer-logo span { color: #6ee8a2; }
+    footer p { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+    .footer-links { display: flex; gap: 22px; }
+    .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer-links a:hover { color: var(--white); }
+
+    /* ── SUCCESS ── */
+    .success-msg {
+      display: none; text-align: center;
+      font-size: 1rem; font-weight: 600; color: var(--green);
+      padding: 16px; background: var(--green-light); border-radius: 8px;
+    }
+    .success-msg.show { display: block; }
+
+    /* ── ANIM ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-left { animation: fadeUp 0.5s ease both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      nav { padding: 16px 20px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 40px 20px 60px; gap: 40px; }
+      .section-wrap { padding: 60px 20px; }
+      .funding-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .lender-inner { grid-template-columns: 1fr; gap: 36px; }
+      .trust-strip { padding: 16px 20px; gap: 16px; }
+      .waitlist-section { padding: 60px 20px; }
+      footer { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Franchise<span>Funding</span></div>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#lenders">For lenders</a>
+    <a href="#list-your-product" class="nav-cta">Get listed →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div style="max-width:1100px; margin: 0 auto;">
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">UK Franchise Finance Directory</div>
+      <h1>Stop Googling.<br>Start <span class="highlight">funding</span><br>your <span class="underline-word">franchise.</span></h1>
+      <p class="hero-sub">Finding finance for a franchise is confusing. We bring together every lender, broker, and scheme in one simple directory — so you can compare and get moving.</p>
+      <div class="hero-actions">
+        <a href="#find-funding" class="btn-big">Find my funding options →</a>
+        <a href="#how" class="btn-outline">See how it works</a>
+      </div>
+      <p class="hero-note">No credit check. No obligation. Takes 2 minutes.</p>
+    </div>
+
+    <div class="hero-card" id="find-funding">
+      <h3>What are you looking for?</h3>
+      <p>Tell us a bit about your situation and we'll point you in the right direction.</p>
+
+      <label class="field-label">Your name</label>
+      <input type="text" placeholder="e.g. Sarah Johnson" id="hero-name" />
+
+      <label class="field-label">Email address</label>
+      <input type="email" placeholder="sarah@yourbusiness.co.uk" id="hero-email" />
+
+      <label class="field-label">Where are you right now?</label>
+      <select id="hero-stage">
+        <option value="">Choose your situation...</option>
+        <option>Buying my first franchise</option>
+        <option>Growing / opening more sites</option>
+        <option>Refinancing existing debt</option>
+        <option>Just looking into it for now</option>
+      </select>
+
+      <label class="field-label">How much do you need?</label>
+      <select id="hero-amount">
+        <option value="">Select a rough amount...</option>
+        <option>Under £25,000</option>
+        <option>£25,000 – £100,000</option>
+        <option>£100,000 – £500,000</option>
+        <option>Over £500,000</option>
+      </select>
+
+      <button class="btn-submit" onclick="handleHeroSubmit()">Show me my options →</button>
+      <p class="card-note">We'll reply within 1 working day. No spam, ever.</p>
+      <div class="success-msg" id="hero-success">✓ Great! We'll be in touch shortly with options matched to you.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <span>🏦 High street banks</span>
+  <span>🤝 Specialist brokers</span>
+  <span>🏛️ Government schemes</span>
+  <span>📋 Franchisor finance</span>
+  <span>🔒 FCA-regulated only</span>
+</div>
+
+<!-- FUNDING TYPES -->
+<section class="funding-section">
+  <div class="section-wrap">
+    <div class="pill-label">What we cover</div>
+    <h2>Every type of UK<br>franchise finance</h2>
+    <p class="section-sub">Whether you're just starting out or expanding to your fifth site, here's what you'll find in the directory.</p>
+
+    <div class="funding-grid">
+      <div class="fcard">
+        <span class="fcard-emoji">🏦</span>
+        <div class="fcard-title">Bank Loans</div>
+        <div class="fcard-desc">High street and challenger banks with franchise lending teams. See who lends to your sector and what rates to expect.</div>
+        <span class="fcard-tag">Most popular</span>
+      </div>
+      <div class="fcard">
+        <span class="fcard-emoji">👔</span>
+        <div class="fcard-title">Specialist Brokers</div>
+        <div class="fcard-desc">Brokers who know franchise lending inside out — they often get better deals than going straight to a bank.</div>
+        <span class="fcard-tag">Great for first-timers</span>
+      </div>
+      <div class="fcard">
+        <span class="fcard-emoji">🏛️</span>
+        <div class="fcard-title">Government Schemes</div>
+        <div class="fcard-desc">Start Up Loans, British Business Bank, and grants that can top up or replace commercial finance.</div>
+        <span class="fcard-tag">Lower interest rates</span>
+      </div>
+      <div class="fcard">
+        <span class="fcard-emoji">🏢</span>
+        <div class="fcard-title">Franchisor Finance</div>
+        <div class="fcard-desc">Many franchise brands offer their own finance or preferred lenders. We list which ones — and on what terms.</div>
+        <span class="fcard-tag">No bank needed</span>
+      </div>
+      <div class="fcard">
+        <span class="fcard-emoji">💼</span>
+        <div class="fcard-title">Asset Finance</div>
+        <div class="fcard-desc">Lease or hire-purchase your equipment instead of buying outright. Keep cash free for running the business.</div>
+        <span class="fcard-tag">Equipment-focused</span>
+      </div>
+      <div class="fcard">
+        <span class="fcard-emoji">📈</span>
+        <div class="fcard-title">Growth Finance</div>
+        <div class="fcard-desc">Ready to open more sites? Revenue-based finance and commercial mortgages built for franchisees scaling up.</div>
+        <span class="fcard-tag">Multi-site owners</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="section-wrap">
+    <div class="pill-label green">How it works</div>
+    <h2>Simple as that.</h2>
+    <p class="section-sub">No jargon. No confusing forms. Just a clear path from "I need funding" to "I've got it sorted."</p>
+
+    <div class="steps-grid">
+      <div class="step-box">
+        <div class="step-num-big">1</div>
+        <div class="step-title">Tell us your situation</div>
+        <div class="step-desc">A quick form — your stage, your amount, and where you're based. Takes two minutes.</div>
+      </div>
+      <div class="step-box">
+        <div class="step-num-big">2</div>
+        <div class="step-title">See matched options</div>
+        <div class="step-desc">We show you the lenders and brokers that actually suit your profile. No noise, no irrelevant results.</div>
+      </div>
+      <div class="step-box">
+        <div class="step-num-big">3</div>
+        <div class="step-title">Compare side by side</div>
+        <div class="step-desc">Rates, terms, typical requirements — all in one place so you can make a proper decision.</div>
+      </div>
+      <div class="step-box">
+        <div class="step-num-big">4</div>
+        <div class="step-title">Get connected</div>
+        <div class="step-desc">Go direct or let us make an introduction. Either way, you're talking to the right people.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LENDER SECTION -->
+<section class="lender-section" id="lenders">
+  <div class="section-wrap">
+    <div class="lender-inner">
+      <div>
+        <div class="pill-label" style="background:rgba(255,255,255,0.15); color:white;">For lenders & brokers</div>
+        <h2>Talk to franchisees who are ready to borrow</h2>
+        <p class="section-sub">Our visitors have self-selected — they're looking for franchise finance right now. That's a different kind of lead.</p>
+
+        <div class="perk-list">
+          <div class="perk">
+            <div class="perk-dot">🎯</div>
+            <div>
+              <div class="perk-title">High-intent leads only</div>
+              <div class="perk-desc">Every person on the site is actively looking for franchise funding. No wasted budget on browsers.</div>
+            </div>
+          </div>
+          <div class="perk">
+            <div class="perk-dot">📊</div>
+            <div>
+              <div class="perk-title">Clear, honest reporting</div>
+              <div class="perk-desc">See exactly how many enquiries your listing generates. No black boxes.</div>
+            </div>
+          </div>
+          <div class="perk">
+            <div class="perk-dot">🔒</div>
+            <div>
+              <div class="perk-title">FCA-regulated listings only</div>
+              <div class="perk-desc">We only list authorised lenders and brokers. Our users trust that, and so should you.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lender-form" id="list-your-product">
+        <h3>Get your product listed</h3>
+        <p>We're bringing on founding partners now, before we launch. Early listings get the best visibility.</p>
+
+        <input type="text" placeholder="Company name" id="lender-company" />
+        <input type="text" placeholder="Your name" id="lender-name" />
+        <input type="email" placeholder="Business email" id="lender-email" />
+        <select id="lender-type">
+          <option value="">What type of organisation are you?</option>
+          <option>Bank / Building Society</option>
+          <option>Specialist Broker</option>
+          <option>Government-backed lender</option>
+          <option>Asset finance provider</option>
+          <option>Alternative / fintech lender</option>
+        </select>
+
+        <button class="btn-submit" onclick="handleLenderSubmit()">Request our media pack →</button>
+        <p class="card-note" style="margin-top:10px;">We'll send pricing and details within 24 hours.</p>
+        <div class="success-msg" id="lender-success">✓ Perfect! Our media pack will be with you shortly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="waitlist-section">
+  <h2>Launching soon. Get notified first.</h2>
+  <p>Drop your email and we'll let you know the moment we're live.</p>
+  <div class="waitlist-form">
+    <input type="email" placeholder="your@email.co.uk" id="notify-email" />
+    <button class="btn-white" onclick="handleNotify()">Notify me</button>
+  </div>
+  <div class="success-msg" id="notify-success" style="color:white; background:rgba(255,255,255,0.15); max-width:400px; margin: 20px auto 0;">✓ You're on the list — we'll be in touch!</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Franchise<span>Funding</span></div>
+  <p>© 2025 FranchiseFunding.co.uk · All rights reserved</p>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+<script>
+  function showSuccess(id, hideParent) {
+    const s = document.getElementById(id);
+    if (hideParent) {
+      Array.from(hideParent.querySelectorAll('input, select, button')).forEach(el => el.style.display = 'none');
+    }
+    s.classList.add('show');
+  }
+
+  function handleHeroSubmit() {
+    const name = document.getElementById('hero-name').value;
+    const email = document.getElementById('hero-email').value;
+    if (!name || !email) { alert('Please fill in your name and email to continue.'); return; }
+    const card = document.getElementById('hero-success').closest('.hero-card');
+    showSuccess('hero-success', card);
+  }
+
+  function handleLenderSubmit() {
+    const email = document.getElementById('lender-email').value;
+    if (!email) { alert('Please enter your email address.'); return; }
+    const form = document.getElementById('lender-success').closest('.lender-form');
+    showSuccess('lender-success', form);
+  }
+
+  function handleNotify() {
+    const email = document.getElementById('notify-email').value;
+    if (!email) { alert('Please enter your email address.'); return; }
+    document.querySelector('.waitlist-form').style.display = 'none';
+    showSuccess('notify-success', null);
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fcard, .step-box, .perk').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = `opacity 0.45s ${i * 0.06}s ease, transform 0.45s ${i * 0.06}s ease`;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
