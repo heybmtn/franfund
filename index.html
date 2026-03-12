@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Franchise Funding — Find Money for Your Franchise</title>
+  <title>Franchise Funding — Get Matched With a Lender Today</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -13,7 +13,6 @@
       --bg: #fffbf5;
       --green: #1a6b3c;
       --green-light: #e8f4ed;
-      --green-mid: #2d8a52;
       --orange: #e85d26;
       --orange-light: #fdf0eb;
       --text: #1c1c1c;
@@ -29,10 +28,9 @@
       background: var(--bg);
       color: var(--text);
       overflow-x: hidden;
-      font-size: 18px;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -43,410 +41,325 @@
     .logo {
       font-family: 'Fraunces', serif;
       font-size: 1.5rem; font-weight: 900;
-      color: var(--text);
-      letter-spacing: -0.03em;
+      color: var(--text); letter-spacing: -0.03em;
     }
     .logo span { color: var(--green); }
-    .nav-links { display: flex; align-items: center; gap: 32px; }
-    .nav-links a {
-      font-size: 0.9rem; font-weight: 500;
-      color: var(--muted); text-decoration: none;
-      transition: color 0.2s;
+    .nav-right {
+      display: flex; align-items: center; gap: 20px;
     }
-    .nav-links a:hover { color: var(--text); }
+    .nav-phone {
+      font-size: 0.9rem; font-weight: 600; color: var(--text);
+      text-decoration: none;
+    }
+    .nav-phone span { color: var(--green); }
     .nav-cta {
-      background: var(--orange) !important;
-      color: var(--white) !important;
-      padding: 11px 22px;
-      border-radius: 8px;
-      font-size: 0.9rem !important;
-      font-weight: 600 !important;
+      background: var(--orange);
+      color: var(--white);
+      padding: 11px 22px; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 700;
       text-decoration: none;
       transition: opacity 0.2s;
     }
     .nav-cta:hover { opacity: 0.88; }
 
-    /* ── HERO ── */
+    /* HERO */
+    .hero-wrap {
+      background: var(--text);
+      position: relative; overflow: hidden;
+    }
+    .hero-wrap::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 90% at 100% 50%, rgba(26,107,60,0.25) 0%, transparent 65%);
+    }
     .hero {
-      padding: 80px 48px 80px;
-      max-width: 1100px;
-      margin: 0 auto;
+      max-width: 1100px; margin: 0 auto;
+      padding: 80px 48px;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 60px;
-      align-items: center;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px; align-items: center;
+      position: relative; z-index: 1;
     }
 
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--green-light);
-      color: var(--green);
-      font-size: 0.85rem; font-weight: 600;
+      background: rgba(26,107,60,0.25);
+      color: #6ee8a2;
+      font-size: 0.82rem; font-weight: 600;
       padding: 6px 14px; border-radius: 20px;
       margin-bottom: 24px;
     }
-    .hero-eyebrow::before { content: '🇬🇧'; font-size: 0.9rem; }
 
     h1 {
       font-family: 'Fraunces', serif;
-      font-size: clamp(3rem, 5.5vw, 5rem);
-      font-weight: 900;
-      line-height: 1.05;
+      font-size: clamp(2.8rem, 5vw, 4.6rem);
+      font-weight: 900; line-height: 1.05;
       letter-spacing: -0.03em;
-      color: var(--text);
-      margin-bottom: 24px;
+      color: var(--white);
+      margin-bottom: 22px;
     }
-    h1 .highlight {
-      color: var(--green);
-      font-style: italic;
-    }
-    h1 .underline-word {
+    h1 .green { color: #6ee8a2; font-style: italic; }
+    h1 .strike {
       position: relative; display: inline-block;
-      white-space: nowrap;
     }
-    h1 .underline-word::after {
+    h1 .strike::after {
       content: '';
-      position: absolute; left: 0; bottom: 4px; right: 0;
-      height: 6px;
-      background: var(--orange);
-      border-radius: 3px;
-      z-index: -1;
+      position: absolute; left: 0; top: 52%; right: 0;
+      height: 4px; background: var(--orange); border-radius: 2px;
     }
 
     .hero-sub {
-      font-size: 1.15rem;
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 40px;
-      max-width: 480px;
+      font-size: 1.1rem; color: rgba(255,255,255,0.65);
+      line-height: 1.75; margin-bottom: 36px; max-width: 480px;
     }
 
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-    .btn-big {
-      background: var(--green);
-      color: var(--white);
-      border: none; border-radius: 10px;
-      padding: 16px 28px;
-      font-size: 1rem; font-weight: 600;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      cursor: pointer;
-      transition: opacity 0.2s, transform 0.1s;
-      text-decoration: none; display: inline-block;
+    .hero-bullets {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 10px;
+      margin-bottom: 36px;
     }
-    .btn-big:hover { opacity: 0.88; transform: translateY(-2px); }
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 2px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 24px;
-      font-size: 1rem; font-weight: 500;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      cursor: pointer;
-      transition: border-color 0.2s;
-      text-decoration: none; display: inline-block;
+    .hero-bullets li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.95rem; color: rgba(255,255,255,0.8); font-weight: 500;
     }
-    .btn-outline:hover { border-color: var(--text); }
+    .hero-bullets li::before {
+      content: '✓';
+      width: 22px; height: 22px; flex-shrink: 0;
+      background: var(--green); color: white;
+      border-radius: 50%; font-size: 0.7rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
 
-    .hero-note {
-      margin-top: 16px;
-      font-size: 0.82rem; color: var(--muted);
-      display: flex; align-items: center; gap: 6px;
-    }
-    .hero-note::before { content: '✓'; color: var(--green); font-weight: 700; }
-
-    /* ── HERO CARD (right side) ── */
-    .hero-card {
+    /* MULTI-STEP FORM */
+    .form-card {
       background: var(--white);
-      border: 2px solid var(--text);
       border-radius: 20px;
       padding: 36px;
-      box-shadow: 6px 6px 0 var(--text);
-      animation: fadeUp 0.5s 0.2s ease both;
+      border: 2px solid rgba(255,255,255,0.15);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
     }
-    .hero-card h3 {
+
+    .form-progress {
+      display: flex; gap: 6px; margin-bottom: 28px;
+    }
+    .progress-dot {
+      height: 5px; border-radius: 3px; flex: 1;
+      background: var(--border);
+      transition: background 0.3s;
+    }
+    .progress-dot.active { background: var(--green); }
+
+    .step-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--green); margin-bottom: 6px;
+    }
+    .form-card h3 {
       font-family: 'Fraunces', serif;
-      font-size: 1.4rem; font-weight: 700;
-      margin-bottom: 8px;
+      font-size: 1.35rem; font-weight: 700;
+      margin-bottom: 20px; line-height: 1.25;
     }
-    .hero-card > p {
-      font-size: 0.9rem; color: var(--muted);
-      margin-bottom: 24px; line-height: 1.6;
+
+    /* form steps */
+    .form-step { display: none; }
+    .form-step.active { display: block; }
+
+    .option-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      margin-bottom: 20px;
     }
-    .field-label {
-      font-size: 0.8rem; font-weight: 600;
+    .option-btn {
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 12px;
+      font-size: 0.88rem; font-weight: 600;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      cursor: pointer; background: var(--bg);
+      text-align: center; transition: all 0.15s;
       color: var(--text);
-      margin-bottom: 6px; display: block;
+      line-height: 1.3;
     }
-    .hero-card input, .hero-card select {
+    .option-btn .opt-icon { font-size: 1.3rem; display: block; margin-bottom: 4px; }
+    .option-btn:hover { border-color: var(--green); background: var(--green-light); }
+    .option-btn.selected { border-color: var(--green); background: var(--green-light); color: var(--green); }
+
+    .field-label {
+      font-size: 0.8rem; font-weight: 700; color: var(--text);
+      display: block; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .form-input {
       width: 100%;
       border: 2px solid var(--border);
       border-radius: 8px;
-      background: var(--bg);
-      color: var(--text);
-      padding: 12px 14px;
-      font-size: 0.95rem;
+      background: var(--bg); color: var(--text);
+      padding: 13px 14px;
+      font-size: 0.98rem;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      outline: none;
-      margin-bottom: 14px;
+      outline: none; margin-bottom: 14px;
       transition: border-color 0.2s;
     }
-    .hero-card input:focus, .hero-card select:focus { border-color: var(--green); }
-    .hero-card input::placeholder { color: #bbb; }
-    .hero-card select option { background: var(--white); }
-    .btn-submit {
+    .form-input:focus { border-color: var(--green); }
+    .form-input::placeholder { color: #bbb; }
+    .form-input.half { width: calc(50% - 6px); }
+    .input-row { display: flex; gap: 12px; }
+    .input-row .form-input { margin-bottom: 0; }
+    .input-group { flex: 1; margin-bottom: 14px; }
+
+    .btn-next {
       width: 100%;
-      background: var(--orange);
-      color: var(--white);
+      background: var(--orange); color: var(--white);
       border: none; border-radius: 8px;
-      padding: 15px;
-      font-size: 1rem; font-weight: 700;
+      padding: 15px; font-size: 1rem; font-weight: 700;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      cursor: pointer;
-      transition: opacity 0.2s;
-      margin-top: 4px;
+      cursor: pointer; transition: opacity 0.2s;
     }
-    .btn-submit:hover { opacity: 0.88; }
-    .card-note {
-      font-size: 0.78rem; color: var(--muted);
+    .btn-next:hover { opacity: 0.88; }
+    .btn-back {
+      background: none; border: none;
+      color: var(--muted); font-size: 0.85rem; font-weight: 500;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      cursor: pointer; padding: 10px 0 0;
+      display: block; margin: 0 auto;
+      text-decoration: underline;
+    }
+    .card-reassurance {
+      font-size: 0.75rem; color: var(--muted);
       text-align: center; margin-top: 10px;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
     }
+    .card-reassurance::before { content: '🔒'; font-size: 0.85rem; }
 
-    /* ── TRUST STRIP ── */
-    .trust-strip {
-      background: var(--text);
-      color: rgba(255,255,255,0.7);
-      padding: 18px 48px;
+    /* success */
+    .form-success {
+      display: none; text-align: center; padding: 10px 0;
+    }
+    .form-success.show { display: block; }
+    .success-icon { font-size: 3rem; margin-bottom: 12px; }
+    .form-success h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem; font-weight: 900; margin-bottom: 8px;
+    }
+    .form-success p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--green);
+      padding: 16px 48px;
       display: flex; align-items: center; justify-content: center;
-      gap: 40px; flex-wrap: wrap;
-      font-size: 0.88rem; font-weight: 500;
+      gap: 36px; flex-wrap: wrap;
+      font-size: 0.88rem; font-weight: 600; color: rgba(255,255,255,0.9);
     }
-    .trust-strip span { display: flex; align-items: center; gap: 8px; }
+    .trust-bar span { display: flex; align-items: center; gap: 8px; }
 
-    /* ── SECTIONS ── */
+    /* HOW IT WORKS */
     .section-wrap { max-width: 1100px; margin: 0 auto; padding: 80px 48px; }
-
-    .pill-label {
-      display: inline-block;
-      background: var(--orange-light);
-      color: var(--orange);
-      font-size: 0.8rem; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 5px 14px; border-radius: 20px;
-      margin-bottom: 16px;
-    }
-    .pill-label.green { background: var(--green-light); color: var(--green); }
-
+    .pill { display: inline-block; background: var(--orange-light); color: var(--orange);
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+    .pill.green { background: var(--green-light); color: var(--green); }
     h2 {
       font-family: 'Fraunces', serif;
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
+      font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+      font-weight: 900; line-height: 1.1;
+      letter-spacing: -0.03em; margin-bottom: 14px;
     }
     .section-sub {
-      font-size: 1.05rem;
-      color: var(--muted);
-      line-height: 1.75;
-      max-width: 540px;
-      margin-bottom: 52px;
+      font-size: 1.05rem; color: var(--muted);
+      line-height: 1.75; max-width: 520px; margin-bottom: 48px;
     }
 
-    /* ── FUNDING CARDS ── */
-    .funding-section { background: var(--white); border-top: 2px solid var(--border); border-bottom: 2px solid var(--border); }
-
-    .funding-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .step {
+      background: var(--white); border: 2px solid var(--border);
+      border-radius: 16px; padding: 30px 24px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      position: relative; overflow: hidden;
     }
-    .fcard {
-      border: 2px solid var(--border);
-      border-radius: 16px;
-      padding: 28px 24px;
-      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-      cursor: default;
-      background: var(--bg);
-    }
-    .fcard:hover {
-      border-color: var(--green);
-      transform: translateY(-4px);
-      box-shadow: 4px 4px 0 var(--green);
-    }
-    .fcard-emoji { font-size: 2.2rem; margin-bottom: 14px; display: block; }
-    .fcard-title {
+    .step:hover { border-color: var(--green); box-shadow: 4px 4px 0 var(--green); }
+    .step-num {
       font-family: 'Fraunces', serif;
-      font-size: 1.25rem; font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .fcard-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.7; }
-    .fcard-tag {
-      display: inline-block; margin-top: 14px;
-      font-size: 0.75rem; font-weight: 600;
-      color: var(--green);
-      background: var(--green-light);
-      padding: 4px 12px; border-radius: 20px;
-    }
-
-    /* ── HOW IT WORKS ── */
-    .how-section { background: var(--bg); }
-    .steps-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
-    }
-    .step-box {
-      background: var(--white);
-      border: 2px solid var(--border);
-      border-radius: 16px;
-      padding: 28px 22px;
-      transition: border-color 0.2s;
-    }
-    .step-box:hover { border-color: var(--green); }
-    .step-num-big {
-      font-family: 'Fraunces', serif;
-      font-size: 3rem; font-weight: 900;
-      color: var(--green-light);
-      line-height: 1;
-      margin-bottom: 12px;
+      font-size: 3.5rem; font-weight: 900;
+      color: var(--green-light); line-height: 1;
       -webkit-text-stroke: 2px var(--green);
+      margin-bottom: 14px;
     }
-    .step-title {
-      font-size: 1.05rem; font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .step-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+    .step-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .step-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
 
-    /* ── LENDER SECTION ── */
-    .lender-section { background: var(--green); }
-    .lender-section h2 { color: var(--white); }
-    .lender-section .section-sub { color: rgba(255,255,255,0.65); }
-    .lender-inner {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
-    }
-    .perk-list { display: flex; flex-direction: column; gap: 22px; margin-top: 8px; }
-    .perk {
-      display: flex; gap: 14px; align-items: flex-start;
-    }
-    .perk-dot {
-      width: 36px; height: 36px; flex-shrink: 0;
-      background: rgba(255,255,255,0.15);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-    }
-    .perk-title { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 4px; }
-    .perk-desc { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
-
-    .lender-form {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 36px;
-      border: 2px solid rgba(255,255,255,0.3);
-    }
-    .lender-form h3 {
-      font-family: 'Fraunces', serif;
-      font-size: 1.6rem; font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .lender-form > p {
-      font-size: 0.9rem; color: var(--muted);
-      margin-bottom: 22px; line-height: 1.6;
-    }
-    .lender-form input, .lender-form select {
-      width: 100%;
-      border: 2px solid var(--border);
-      border-radius: 8px;
-      background: var(--bg);
-      color: var(--text);
-      padding: 12px 14px;
-      font-size: 0.95rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      outline: none;
-      margin-bottom: 12px;
+    /* WHY US */
+    .why-section { background: var(--white); border-top: 2px solid var(--border); border-bottom: 2px solid var(--border); }
+    .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .why-card {
+      border: 2px solid var(--border); border-radius: 14px;
+      padding: 26px 24px; background: var(--bg);
       transition: border-color 0.2s;
     }
-    .lender-form input:focus, .lender-form select:focus { border-color: var(--green); }
-    .lender-form input::placeholder { color: #bbb; }
+    .why-card:hover { border-color: var(--orange); }
+    .why-icon { font-size: 2rem; margin-bottom: 12px; }
+    .why-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+    .why-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
 
-    /* ── WAITLIST ── */
-    .waitlist-section {
+    /* TYPES OF FUNDING */
+    .types-section { background: var(--bg); }
+    .types-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .type-chip {
+      border: 2px solid var(--border); border-radius: 12px;
+      padding: 20px 18px; background: var(--white);
+      display: flex; align-items: center; gap: 12px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .type-chip:hover { border-color: var(--green); transform: translateY(-2px); }
+    .type-chip-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .type-chip-text { font-size: 0.92rem; font-weight: 600; }
+
+    /* BOTTOM CTA */
+    .cta-section {
       background: var(--orange);
-      text-align: center;
-      padding: 80px 48px;
+      text-align: center; padding: 80px 48px;
     }
-    .waitlist-section h2 { color: var(--white); margin-bottom: 12px; }
-    .waitlist-section p { color: rgba(255,255,255,0.75); font-size: 1.05rem; margin-bottom: 36px; }
-    .waitlist-form {
-      display: flex; gap: 12px; justify-content: center;
-      max-width: 500px; margin: 0 auto; flex-wrap: wrap;
+    .cta-section h2 { color: var(--white); margin-bottom: 12px; }
+    .cta-section p { color: rgba(255,255,255,0.75); font-size: 1.05rem; margin-bottom: 32px; }
+    .btn-cta-white {
+      display: inline-block;
+      background: var(--white); color: var(--orange);
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 1.05rem; font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.1s;
     }
-    .waitlist-form input {
-      flex: 1; min-width: 220px;
-      background: var(--white);
-      border: 2px solid transparent;
-      border-radius: 8px;
-      padding: 14px 18px;
-      font-size: 1rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      outline: none; color: var(--text);
-    }
-    .waitlist-form input:focus { border-color: var(--text); }
-    .btn-white {
-      background: var(--white);
-      color: var(--orange);
-      border: none; border-radius: 8px;
-      padding: 14px 28px;
-      font-size: 1rem; font-weight: 700;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-    .btn-white:hover { opacity: 0.9; }
+    .btn-cta-white:hover { opacity: 0.92; transform: translateY(-2px); }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
-      background: var(--text);
-      padding: 36px 48px;
+      background: var(--text); padding: 36px 48px;
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 16px;
     }
-    .footer-logo {
-      font-family: 'Fraunces', serif;
-      font-size: 1.2rem; font-weight: 900;
-      color: var(--white);
-    }
+    .footer-logo { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 900; color: var(--white); }
     .footer-logo span { color: #6ee8a2; }
     footer p { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
     .footer-links { display: flex; gap: 22px; }
     .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.4); text-decoration: none; }
     .footer-links a:hover { color: var(--white); }
 
-    /* ── SUCCESS ── */
-    .success-msg {
-      display: none; text-align: center;
-      font-size: 1rem; font-weight: 600; color: var(--green);
-      padding: 16px; background: var(--green-light); border-radius: 8px;
-    }
-    .success-msg.show { display: block; }
-
-    /* ── ANIM ── */
+    /* ANIM */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .hero-left { animation: fadeUp 0.5s ease both; }
+    .hero-left-content { animation: fadeUp 0.5s ease both; }
+    .form-card { animation: fadeUp 0.5s 0.15s ease both; }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 860px) {
       nav { padding: 16px 20px; }
-      .nav-links a:not(.nav-cta) { display: none; }
-      .hero { grid-template-columns: 1fr; padding: 40px 20px 60px; gap: 40px; }
+      .nav-phone { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 48px 20px; gap: 36px; }
       .section-wrap { padding: 60px 20px; }
-      .funding-grid { grid-template-columns: 1fr; }
-      .steps-grid { grid-template-columns: 1fr 1fr; }
-      .lender-inner { grid-template-columns: 1fr; gap: 36px; }
-      .trust-strip { padding: 16px 20px; gap: 16px; }
-      .waitlist-section { padding: 60px 20px; }
+      .steps { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .types-grid { grid-template-columns: 1fr 1fr; }
+      .trust-bar { padding: 14px 20px; gap: 14px; }
+      .cta-section { padding: 60px 20px; }
       footer { padding: 28px 20px; }
     }
   </style>
@@ -456,260 +369,280 @@
 <!-- NAV -->
 <nav>
   <div class="logo">Franchise<span>Funding</span></div>
-  <div class="nav-links">
-    <a href="#how">How it works</a>
-    <a href="#lenders">For lenders</a>
-    <a href="#list-your-product" class="nav-cta">Get listed →</a>
+  <div class="nav-right">
+    <a href="tel:08001234567" class="nav-phone"><span>📞</span> 0800 123 4567</a>
+    <a href="#get-matched" class="nav-cta">Get matched free →</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<div style="max-width:1100px; margin: 0 auto;">
+<div class="hero-wrap">
   <div class="hero">
-    <div class="hero-left">
-      <div class="hero-eyebrow">UK Franchise Finance Directory</div>
-      <h1>Stop Googling.<br>Start <span class="highlight">funding</span><br>your <span class="underline-word">franchise.</span></h1>
-      <p class="hero-sub">Finding finance for a franchise is confusing. We bring together every lender, broker, and scheme in one simple directory — so you can compare and get moving.</p>
-      <div class="hero-actions">
-        <a href="#find-funding" class="btn-big">Find my funding options →</a>
-        <a href="#how" class="btn-outline">See how it works</a>
-      </div>
-      <p class="hero-note">No credit check. No obligation. Takes 2 minutes.</p>
+    <div class="hero-left-content">
+      <div class="hero-eyebrow">🇬🇧 UK Franchise Finance — Free Matching Service</div>
+      <h1>Get matched with the right <span class="green">lender</span> for your franchise</h1>
+      <p class="hero-sub">Tell us what you need. We'll pass your details to lenders who actually fund franchises — and they'll come to you.</p>
+      <ul class="hero-bullets">
+        <li>Free to use — no fees, no catch</li>
+        <li>Matched with specialist franchise lenders</li>
+        <li>Hear back within 1 working day</li>
+        <li>All lenders are FCA-regulated</li>
+      </ul>
     </div>
 
-    <div class="hero-card" id="find-funding">
-      <h3>What are you looking for?</h3>
-      <p>Tell us a bit about your situation and we'll point you in the right direction.</p>
-
-      <label class="field-label">Your name</label>
-      <input type="text" placeholder="e.g. Sarah Johnson" id="hero-name" />
-
-      <label class="field-label">Email address</label>
-      <input type="email" placeholder="sarah@yourbusiness.co.uk" id="hero-email" />
-
-      <label class="field-label">Where are you right now?</label>
-      <select id="hero-stage">
-        <option value="">Choose your situation...</option>
-        <option>Buying my first franchise</option>
-        <option>Growing / opening more sites</option>
-        <option>Refinancing existing debt</option>
-        <option>Just looking into it for now</option>
-      </select>
-
-      <label class="field-label">How much do you need?</label>
-      <select id="hero-amount">
-        <option value="">Select a rough amount...</option>
-        <option>Under £25,000</option>
-        <option>£25,000 – £100,000</option>
-        <option>£100,000 – £500,000</option>
-        <option>Over £500,000</option>
-      </select>
-
-      <button class="btn-submit" onclick="handleHeroSubmit()">Show me my options →</button>
-      <p class="card-note">We'll reply within 1 working day. No spam, ever.</p>
-      <div class="success-msg" id="hero-success">✓ Great! We'll be in touch shortly with options matched to you.</div>
-    </div>
-  </div>
-</div>
-
-<!-- TRUST STRIP -->
-<div class="trust-strip">
-  <span>🏦 High street banks</span>
-  <span>🤝 Specialist brokers</span>
-  <span>🏛️ Government schemes</span>
-  <span>📋 Franchisor finance</span>
-  <span>🔒 FCA-regulated only</span>
-</div>
-
-<!-- FUNDING TYPES -->
-<section class="funding-section">
-  <div class="section-wrap">
-    <div class="pill-label">What we cover</div>
-    <h2>Every type of UK<br>franchise finance</h2>
-    <p class="section-sub">Whether you're just starting out or expanding to your fifth site, here's what you'll find in the directory.</p>
-
-    <div class="funding-grid">
-      <div class="fcard">
-        <span class="fcard-emoji">🏦</span>
-        <div class="fcard-title">Bank Loans</div>
-        <div class="fcard-desc">High street and challenger banks with franchise lending teams. See who lends to your sector and what rates to expect.</div>
-        <span class="fcard-tag">Most popular</span>
+    <!-- MULTI-STEP FORM -->
+    <div class="form-card" id="get-matched">
+      <div class="form-progress">
+        <div class="progress-dot active" id="dot-1"></div>
+        <div class="progress-dot" id="dot-2"></div>
+        <div class="progress-dot" id="dot-3"></div>
       </div>
-      <div class="fcard">
-        <span class="fcard-emoji">👔</span>
-        <div class="fcard-title">Specialist Brokers</div>
-        <div class="fcard-desc">Brokers who know franchise lending inside out — they often get better deals than going straight to a bank.</div>
-        <span class="fcard-tag">Great for first-timers</span>
-      </div>
-      <div class="fcard">
-        <span class="fcard-emoji">🏛️</span>
-        <div class="fcard-title">Government Schemes</div>
-        <div class="fcard-desc">Start Up Loans, British Business Bank, and grants that can top up or replace commercial finance.</div>
-        <span class="fcard-tag">Lower interest rates</span>
-      </div>
-      <div class="fcard">
-        <span class="fcard-emoji">🏢</span>
-        <div class="fcard-title">Franchisor Finance</div>
-        <div class="fcard-desc">Many franchise brands offer their own finance or preferred lenders. We list which ones — and on what terms.</div>
-        <span class="fcard-tag">No bank needed</span>
-      </div>
-      <div class="fcard">
-        <span class="fcard-emoji">💼</span>
-        <div class="fcard-title">Asset Finance</div>
-        <div class="fcard-desc">Lease or hire-purchase your equipment instead of buying outright. Keep cash free for running the business.</div>
-        <span class="fcard-tag">Equipment-focused</span>
-      </div>
-      <div class="fcard">
-        <span class="fcard-emoji">📈</span>
-        <div class="fcard-title">Growth Finance</div>
-        <div class="fcard-desc">Ready to open more sites? Revenue-based finance and commercial mortgages built for franchisees scaling up.</div>
-        <span class="fcard-tag">Multi-site owners</span>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- HOW IT WORKS -->
-<section class="how-section" id="how">
-  <div class="section-wrap">
-    <div class="pill-label green">How it works</div>
-    <h2>Simple as that.</h2>
-    <p class="section-sub">No jargon. No confusing forms. Just a clear path from "I need funding" to "I've got it sorted."</p>
+      <!-- STEP 1: Situation -->
+      <div class="form-step active" id="step-1">
+        <div class="step-label">Step 1 of 3</div>
+        <h3>Where are you in your franchise journey?</h3>
+        <div class="option-grid">
+          <button class="option-btn" onclick="selectOption(this, 'stage', 'first-franchise')">
+            <span class="opt-icon">🏪</span>Buying my first franchise
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 'stage', 'expanding')">
+            <span class="opt-icon">📈</span>Growing / opening more sites
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 'stage', 'refinancing')">
+            <span class="opt-icon">🔄</span>Refinancing existing debt
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 'stage', 'researching')">
+            <span class="opt-icon">🔍</span>Just researching options
+          </button>
+        </div>
+        <div class="step-label" style="margin-top:4px;">How much funding do you need?</div>
+        <select class="form-input" id="amount" style="margin-top:6px;">
+          <option value="">Select a rough amount...</option>
+          <option>Under £25,000</option>
+          <option>£25,000 – £100,000</option>
+          <option>£100,000 – £500,000</option>
+          <option>Over £500,000</option>
+        </select>
+        <button class="btn-next" onclick="goToStep(2)">Next →</button>
+      </div>
 
-    <div class="steps-grid">
-      <div class="step-box">
-        <div class="step-num-big">1</div>
-        <div class="step-title">Tell us your situation</div>
-        <div class="step-desc">A quick form — your stage, your amount, and where you're based. Takes two minutes.</div>
-      </div>
-      <div class="step-box">
-        <div class="step-num-big">2</div>
-        <div class="step-title">See matched options</div>
-        <div class="step-desc">We show you the lenders and brokers that actually suit your profile. No noise, no irrelevant results.</div>
-      </div>
-      <div class="step-box">
-        <div class="step-num-big">3</div>
-        <div class="step-title">Compare side by side</div>
-        <div class="step-desc">Rates, terms, typical requirements — all in one place so you can make a proper decision.</div>
-      </div>
-      <div class="step-box">
-        <div class="step-num-big">4</div>
-        <div class="step-title">Get connected</div>
-        <div class="step-desc">Go direct or let us make an introduction. Either way, you're talking to the right people.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LENDER SECTION -->
-<section class="lender-section" id="lenders">
-  <div class="section-wrap">
-    <div class="lender-inner">
-      <div>
-        <div class="pill-label" style="background:rgba(255,255,255,0.15); color:white;">For lenders & brokers</div>
-        <h2>Talk to franchisees who are ready to borrow</h2>
-        <p class="section-sub">Our visitors have self-selected — they're looking for franchise finance right now. That's a different kind of lead.</p>
-
-        <div class="perk-list">
-          <div class="perk">
-            <div class="perk-dot">🎯</div>
-            <div>
-              <div class="perk-title">High-intent leads only</div>
-              <div class="perk-desc">Every person on the site is actively looking for franchise funding. No wasted budget on browsers.</div>
-            </div>
+      <!-- STEP 2: About you -->
+      <div class="form-step" id="step-2">
+        <div class="step-label">Step 2 of 3</div>
+        <h3>A bit about you and your franchise</h3>
+        <div class="input-row">
+          <div class="input-group">
+            <label class="field-label">First name</label>
+            <input type="text" class="form-input" placeholder="Sarah" id="fname" />
           </div>
-          <div class="perk">
-            <div class="perk-dot">📊</div>
-            <div>
-              <div class="perk-title">Clear, honest reporting</div>
-              <div class="perk-desc">See exactly how many enquiries your listing generates. No black boxes.</div>
-            </div>
-          </div>
-          <div class="perk">
-            <div class="perk-dot">🔒</div>
-            <div>
-              <div class="perk-title">FCA-regulated listings only</div>
-              <div class="perk-desc">We only list authorised lenders and brokers. Our users trust that, and so should you.</div>
-            </div>
+          <div class="input-group">
+            <label class="field-label">Last name</label>
+            <input type="text" class="form-input" placeholder="Johnson" id="lname" />
           </div>
         </div>
+        <label class="field-label">Franchise brand (if known)</label>
+        <input type="text" class="form-input" placeholder="e.g. Subway, Snap Fitness, or Not decided yet" id="franchise-brand" />
+        <label class="field-label">What industry is the franchise in?</label>
+        <select class="form-input" id="industry">
+          <option value="">Select industry...</option>
+          <option>Food & Beverage</option>
+          <option>Fitness & Wellbeing</option>
+          <option>Retail</option>
+          <option>Cleaning & Maintenance</option>
+          <option>Care & Healthcare</option>
+          <option>Education & Tutoring</option>
+          <option>Other</option>
+        </select>
+        <button class="btn-next" onclick="goToStep(3)">Next →</button>
+        <button class="btn-back" onclick="goToStep(1)">← Back</button>
       </div>
 
-      <div class="lender-form" id="list-your-product">
-        <h3>Get your product listed</h3>
-        <p>We're bringing on founding partners now, before we launch. Early listings get the best visibility.</p>
+      <!-- STEP 3: Contact -->
+      <div class="form-step" id="step-3">
+        <div class="step-label">Step 3 of 3 — Almost there!</div>
+        <h3>Where should lenders reach you?</h3>
+        <label class="field-label">Email address</label>
+        <input type="email" class="form-input" placeholder="sarah@yourbusiness.co.uk" id="email" />
+        <label class="field-label">Mobile number</label>
+        <input type="tel" class="form-input" placeholder="07700 900000" id="phone" />
+        <label class="field-label">Postcode</label>
+        <input type="text" class="form-input" placeholder="e.g. SW1A 1AA" id="postcode" />
+        <button class="btn-next" onclick="handleSubmit()" style="background: var(--green);">
+          Get matched with lenders →
+        </button>
+        <button class="btn-back" onclick="goToStep(2)">← Back</button>
+        <p class="card-reassurance">Your details are shared only with FCA-regulated lenders</p>
+      </div>
 
-        <input type="text" placeholder="Company name" id="lender-company" />
-        <input type="text" placeholder="Your name" id="lender-name" />
-        <input type="email" placeholder="Business email" id="lender-email" />
-        <select id="lender-type">
-          <option value="">What type of organisation are you?</option>
-          <option>Bank / Building Society</option>
-          <option>Specialist Broker</option>
-          <option>Government-backed lender</option>
-          <option>Asset finance provider</option>
-          <option>Alternative / fintech lender</option>
-        </select>
+      <!-- SUCCESS -->
+      <div class="form-success" id="form-success">
+        <div class="success-icon">🎉</div>
+        <h3>You're matched!</h3>
+        <p>We've passed your details to lenders who specialise in franchise funding. Expect to hear from them within <strong>1 working day</strong>.</p>
+        <p style="margin-top: 12px;">Keep an eye on <strong id="success-email"></strong> and your phone.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <button class="btn-submit" onclick="handleLenderSubmit()">Request our media pack →</button>
-        <p class="card-note" style="margin-top:10px;">We'll send pricing and details within 24 hours.</p>
-        <div class="success-msg" id="lender-success">✓ Perfect! Our media pack will be with you shortly.</div>
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <span>⚡ Hear back within 1 working day</span>
+  <span>💷 £25k – £500k+ funded</span>
+  <span>🔒 FCA-regulated lenders only</span>
+  <span>✅ 100% free to apply</span>
+</div>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="section-wrap">
+    <div class="pill green">How it works</div>
+    <h2>Three steps to finding your funding</h2>
+    <p class="section-sub">No endless forms. No cold calls from random brokers. Just a simple process that gets you in front of the right lenders.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Tell us what you need</div>
+        <div class="step-desc">Fill in our short form. It takes about 2 minutes. Tell us your situation, the franchise you're buying, and how much you're looking for.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">We match you with lenders</div>
+        <div class="step-desc">We pass your details to lenders in our network who fund franchises like yours. They're all FCA-regulated and specialist in franchise lending.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Lenders come to you</div>
+        <div class="step-desc">Within one working day, you'll hear from lenders with their best offers. You compare and choose — no obligation to proceed with anyone.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WAITLIST -->
-<section class="waitlist-section">
-  <h2>Launching soon. Get notified first.</h2>
-  <p>Drop your email and we'll let you know the moment we're live.</p>
-  <div class="waitlist-form">
-    <input type="email" placeholder="your@email.co.uk" id="notify-email" />
-    <button class="btn-white" onclick="handleNotify()">Notify me</button>
+<!-- WHY US -->
+<section class="why-section">
+  <div class="section-wrap">
+    <div class="pill">Why use us</div>
+    <h2>Franchise funding,<br>done properly</h2>
+    <p class="section-sub">There are plenty of generic loan comparison sites. We're built specifically for franchisees — and it makes a real difference.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <div class="why-title">Franchise-specialist lenders only</div>
+        <div class="why-desc">Generic lenders often don't understand the franchise model. Every lender in our network has experience funding franchisees specifically.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <div class="why-title">Fast — hear back the same day</div>
+        <div class="why-desc">You submit your details once and lenders reach out to you. No chasing, no repeat form-filling, no waiting weeks.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💷</div>
+        <div class="why-title">Completely free to use</div>
+        <div class="why-desc">Our service is free for franchisees. We're paid by the lenders, not you — so there's no catch and no hidden fees.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔒</div>
+        <div class="why-title">Safe, regulated, and private</div>
+        <div class="why-desc">Your data is only shared with FCA-regulated lenders. We don't sell your information or share it with third parties.</div>
+      </div>
+    </div>
   </div>
-  <div class="success-msg" id="notify-success" style="color:white; background:rgba(255,255,255,0.15); max-width:400px; margin: 20px auto 0;">✓ You're on the list — we'll be in touch!</div>
+</section>
+
+<!-- FUNDING TYPES -->
+<section class="types-section">
+  <div class="section-wrap">
+    <div class="pill green">We cover all funding types</div>
+    <h2>Whatever you need funding for</h2>
+    <p class="section-sub">Our lender network covers every common type of franchise finance — from buying your first unit to expanding to multiple sites.</p>
+    <div class="types-grid">
+      <div class="type-chip"><span class="type-chip-icon">🏦</span><span class="type-chip-text">Bank loans</span></div>
+      <div class="type-chip"><span class="type-chip-icon">👔</span><span class="type-chip-text">Specialist broker finance</span></div>
+      <div class="type-chip"><span class="type-chip-icon">🏛️</span><span class="type-chip-text">Government-backed loans</span></div>
+      <div class="type-chip"><span class="type-chip-icon">🏢</span><span class="type-chip-text">Franchisor finance</span></div>
+      <div class="type-chip"><span class="type-chip-icon">💼</span><span class="type-chip-text">Asset & equipment finance</span></div>
+      <div class="type-chip"><span class="type-chip-icon">📈</span><span class="type-chip-text">Multi-site growth finance</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="cta-section">
+  <h2>Ready to find your funding?</h2>
+  <p>It takes 2 minutes. Lenders will be in touch within 1 working day.</p>
+  <a href="#get-matched" class="btn-cta-white">Get matched for free →</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Franchise<span>Funding</span></div>
-  <p>© 2025 FranchiseFunding.co.uk · All rights reserved</p>
+  <p>© 2025 FranchiseFunding.co.uk · All rights reserved<br>
+  FranchiseFunding.co.uk is an introducer, not a lender. All lenders are FCA-regulated.</p>
   <div class="footer-links">
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Use</a>
     <a href="#">Contact</a>
   </div>
 </footer>
 
 <script>
-  function showSuccess(id, hideParent) {
-    const s = document.getElementById(id);
-    if (hideParent) {
-      Array.from(hideParent.querySelectorAll('input, select, button')).forEach(el => el.style.display = 'none');
+  // State
+  const formData = { stage: '', amount: '', fname: '', lname: '', brand: '', industry: '', email: '', phone: '', postcode: '' };
+
+  function selectOption(el, key, value) {
+    // Deselect siblings
+    el.closest('.option-grid').querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+    el.classList.add('selected');
+    formData[key] = value;
+  }
+
+  function goToStep(n) {
+    // Validate current before advancing
+    if (n === 2) {
+      const amount = document.getElementById('amount').value;
+      if (!formData.stage) { alert('Please select where you are in your journey.'); return; }
+      if (!amount) { alert('Please select a funding amount.'); return; }
+      formData.amount = amount;
     }
-    s.classList.add('show');
+    if (n === 3) {
+      const fname = document.getElementById('fname').value.trim();
+      const lname = document.getElementById('lname').value.trim();
+      if (!fname || !lname) { alert('Please enter your first and last name.'); return; }
+      formData.fname = fname;
+      formData.lname = lname;
+      formData.brand = document.getElementById('franchise-brand').value;
+      formData.industry = document.getElementById('industry').value;
+    }
+
+    // Hide all steps
+    document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step-' + n).classList.add('active');
+
+    // Update progress dots
+    document.querySelectorAll('.progress-dot').forEach((d, i) => {
+      d.classList.toggle('active', i < n);
+    });
   }
 
-  function handleHeroSubmit() {
-    const name = document.getElementById('hero-name').value;
-    const email = document.getElementById('hero-email').value;
-    if (!name || !email) { alert('Please fill in your name and email to continue.'); return; }
-    const card = document.getElementById('hero-success').closest('.hero-card');
-    showSuccess('hero-success', card);
-  }
+  function handleSubmit() {
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const postcode = document.getElementById('postcode').value.trim();
+    if (!email || !phone) { alert('Please enter your email and phone number so lenders can reach you.'); return; }
+    formData.email = email;
+    formData.phone = phone;
+    formData.postcode = postcode;
 
-  function handleLenderSubmit() {
-    const email = document.getElementById('lender-email').value;
-    if (!email) { alert('Please enter your email address.'); return; }
-    const form = document.getElementById('lender-success').closest('.lender-form');
-    showSuccess('lender-success', form);
-  }
+    // Here you'd POST formData to your backend / CRM
+    console.log('Lead captured:', formData);
 
-  function handleNotify() {
-    const email = document.getElementById('notify-email').value;
-    if (!email) { alert('Please enter your email address.'); return; }
-    document.querySelector('.waitlist-form').style.display = 'none';
-    showSuccess('notify-success', null);
+    // Show success
+    document.querySelectorAll('.form-step, .form-progress').forEach(el => el.style.display = 'none');
+    const success = document.getElementById('form-success');
+    success.classList.add('show');
+    document.getElementById('success-email').textContent = email;
   }
 
   // Scroll reveal
@@ -722,10 +655,10 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.fcard, .step-box, .perk').forEach((el, i) => {
+  document.querySelectorAll('.step, .why-card, .type-chip').forEach((el, i) => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(18px)';
-    el.style.transition = `opacity 0.45s ${i * 0.06}s ease, transform 0.45s ${i * 0.06}s ease`;
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = `opacity 0.4s ${i * 0.07}s ease, transform 0.4s ${i * 0.07}s ease`;
     observer.observe(el);
   });
 </script>
